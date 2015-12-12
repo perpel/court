@@ -1,0 +1,1 @@
+<img width="100%" height="60%" src="<?=Yii::getAlias('@web')?>/images/fy.jpg" alt="">

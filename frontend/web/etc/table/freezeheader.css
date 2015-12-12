@@ -1,0 +1,165 @@
+ *{
+    margin:0;
+    padding:0;
+}
+body{
+    font-family:"Trebuchet MS", "Myriad Pro", Arial, sans-serif;
+    font-size:14px;
+    background:#fefefe;
+    color:#333;
+    text-shadow:1px 1px 1px #fff;
+    padding-left: 3px;
+    overflow-x:hidden;
+}
+
+ /* ----------->>> GridView <<<----------*/
+        .gridView
+        {
+            width: 100%;
+            clear: both;
+            margin: 0px;
+            border: medium none !important;
+            border-collapse: collapse;
+        }
+        .gridView tr td
+        {
+            vertical-align: top;
+        }
+        .gridView thead tr, .footer
+        {
+            font: bold 11px Arial;
+            vertical-align: middle;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        /* --->>> HeaderStyle (cabeçalho) <<<---*/
+        .gridView thead tr
+        {
+            color: #333;
+            background: #fff url(images/bg-header-grid.png) bottom repeat-x;
+            vertical-align: middle;
+            
+            height: 25px;
+        }
+        .gridView thead tr th
+        {
+            border-top: 1px solid #E2E6E6;
+            border-bottom: 3px solid #E5E5E5;
+            vertical-align: middle;
+        }
+        .gridView thead tr a
+        {
+            font: bold 11px Arial, Verdana;
+            color: #333;
+            padding: 0 0 0 10px;
+            text-decoration: underline;
+            background: url(images/Icones/ico-ordem.gif) left no-repeat;
+            vertical-align: middle;
+        }
+        .gridView thead tr a:hover
+        {
+            color: #06c;
+            background: url(images/Icones/ico-ordem-hover.gif) left no-repeat;
+        }
+
+         .gridView tbody tr{
+            line-height: 25px;
+            height: 25px;
+            text-align: left;
+         }
+        
+        /* ---->>> FooterStyle (rodapé) <<<------*/
+        .footer
+        {
+            height: 20px;
+            width: auto;
+            margin: 0 auto;
+            text-align: center;
+            padding: 5px;
+        }
+
+        /*PagerStyle*/
+        .footer{
+            width: 100%;
+            text-align: left;
+            margin-top: 5px;
+        }
+
+        .pagination li{
+            float: left;
+            list-style: none;
+            margin-left: 3px;
+        }
+        
+
+        .footer a, .footer span
+        {
+            color: #555;
+            padding: 2px 6px 2px 6px;
+            border: 1px solid #bcbcbc;
+            background: #F1F1F1 url(images/bg-pg.png) bottom repeat-x;
+            text-decoration: none;
+        }
+        .footer a:hover
+        {
+            color: #C40B17;
+            background-color: lightblue;
+            background-image: none;
+            border: 1px solid #890812;
+        }
+        .footer span
+        {
+            color: #555;
+            border: 1px solid #890812;
+        }
+
+        .active a{
+            background-color: lightblue;
+            background-image: none;
+        }
+        
+        
+        /* ------------>>> Grid <<<--------------*/
+        .grid, .gridAlternada, .gridDestacada
+        {
+            font: 11px Arial,Verdana;
+            text-align: left;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .grid:hover, .gridAlternada:hover, .gridDestacada:hover
+        {
+            color: #000;
+            background: #D4E5F6 url(images/bg-dia.png) 0 0 repeat-x;
+        }
+        
+        .grid
+        {
+            background-color: #fff;
+        }
+        /*RowStyle*/
+        .gridAlternada
+        {
+            background-color: #eee;
+        }
+        /*AlternatingRowStyle*/
+        .gridDestacada
+        {
+            background-color: #FFE082;
+            color: #333;
+        }
+        /*SelectedRowStyle / EditRowStyle*/
+        
+        
+        /* -------->>> Link Grid's <<<-----------*/
+        .grid a, .gridAlternada a, .gridDestacada a
+        {
+            color: #384249;
+            text-decoration: none;
+        }
+        .grid a:hover, .gridAlternada a:hover, .gridDestacada a:hover
+        {
+            color: #000;
+            text-decoration: underline;
+        }
