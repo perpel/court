@@ -1,0 +1,331 @@
+html,
+body {
+    height: 100%;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.navbar{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    background-color: black;
+    color: #CCC;
+}
+
+.navbar h1{
+    margin: 0 30px;
+    float: left;
+    font-size: 1em;
+}
+
+.navbar .nav{
+    margin: 0 30px;
+    float: right;
+    list-style: none;
+}
+
+.navbar .nav li{
+    float: left;
+    padding: 0 15px;
+    font-family: "微软雅黑";
+    font-size: 0.9em;
+}
+
+.navbar .nav li a{
+    color: #CCC;
+}
+
+.navbar .nav li a:hover{
+    color: white;
+}
+
+/*begin .deputy*/
+.deputy{
+
+    background-color: #E0E7F1;
+    font-size: 0.8em;
+    padding: 0;
+    line-height: 25px;
+    height: 25px;
+    font-family:"黑体"; /* IE8 only */
+}
+
+.deputy .breadcrumbs{
+clear: both;
+    float: left;
+}
+
+.deputy .breadcrumbs ul{
+    margin: 0;
+    list-style: none;
+}
+
+.deputy .breadcrumbs ul li{
+    float: left;
+}
+
+.deputy  .breadcrumb > li + li:before {
+    content: "/ ";
+    padding: 0 5px;
+}
+
+.deputy .breadcrumbs a{
+    text-decoration: none;
+}
+
+.deputy .login-msg{
+    float: right;
+}
+
+#notice{
+    margin: 0px 50px;
+    float: right;
+    overflow: hidden;
+    white-space:nowrap;
+}
+
+
+/*end .deputy*/
+
+
+
+.wrap {
+    clear: both;
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+
+.wrap > .container {
+    padding: 0;
+}
+
+
+.footer {
+    height: 45px;
+    line-height: 45px;
+    width: 100%;
+    position: fixed;
+    bottom: -0;
+    text-align: center;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+}
+
+.title-fnt{
+    font-family: "微软雅黑";
+    margin: 30px 0px 2px 30px;
+    font-size: 1em;
+}
+
+.title-hr{
+    margin: 0;
+}
+
+.jumbotron {
+
+    margin: 15px 30px;
+    padding: 10px 0px 20px 0px;
+    text-align: center;
+    background-color: lightyellow;
+}
+
+.btn {
+    font-family: "微软雅黑";
+    font-size: 14px;
+    padding: 5px 8px;  
+    
+}
+
+
+.jumbotron .btn {
+
+    font-size: 21px;
+    padding: 14px 24px;
+    color: white;
+    background-color: green;
+
+}
+
+.jumbotron .btn:hover{
+    color: orange;
+}
+
+.row .col{
+    
+    width: 45%;
+    margin: 30px 30px 0px;
+    padding: 15px;
+    background-color: lightblue;
+    float: left;
+
+}
+
+.row img{
+    width: 80px;
+    height: 80px;
+    float: left;
+}
+
+.row p{
+    padding-left: 10px;
+    max-height: 300px;
+    overflow: hidden;
+}
+
+
+
+/*begin login*/
+
+.site-login{
+    margin: auto;
+    text-align: center;
+    font-family: "微软雅黑";
+}
+
+.site-login .row{
+    width: 80%;
+    margin: auto;
+}
+
+.site-login .row .col{
+    clear: both;
+    width: 100%;
+    height: 500px;
+    margin: auto;
+}
+
+.form-group{
+
+    margin: 20px;
+    
+
+}
+
+.form-group label{
+    display: block;
+    float: left;
+    text-align: right;
+    width: 200px;
+    position: relative;
+    left: 250px;
+    line-height: 30px;
+}
+
+.form-group input{
+    width: 50%;
+
+    padding-top: 5px;
+    height: 20px;
+}
+
+.form-group select{
+
+    width: 50%;
+    height: 30px;
+    font-size: 1.2em;
+}
+
+.form-group.has-error input{
+
+    background-color: #EEE0E5;
+}
+
+.checkbox{
+    width: 120px;
+    line-height: 30px;
+    height: 30px;
+    font-size: 1em;
+    margin: auto;
+}
+
+.checkbox label{
+
+    left: -110px;
+
+}
+
+.checkbox input{
+    display: block;
+    float: left;
+    position: relative;
+    left: 80px;
+    top:5px;
+    top:2px\9;
+}
+
+.help-block-error{
+    color:red;
+}
+
+
+/*end login*/
+
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view th {
+    white-space: nowrap;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}

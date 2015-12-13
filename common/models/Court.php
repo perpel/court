@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "{{%court}}".
@@ -105,9 +106,24 @@ class Court extends \yii\db\ActiveRecord
 
     public function treeCourts($id){
         $courts = $this->find()->where(["up_level"=>$id])->all();
+
+        if($id != 0){
+
+            $self = $this->findOne($id);
+            
+            if(!empty($courts)){
+                echo "<li><span class='folder'></span><a target='court-list' href='index.php?r=court/show&court=$self->id'>$self->courtname</a>";
+                echo "<ul>";
+            }else{
+                echo "<li><span class='folder end'></span><a target='court-list' href='index.php?r=court/show&court=$self->id'>$self->courtname</a>";
+            }
+        }
+
         if(empty($courts)){
+            echo "</li>";
             return;
         }
+
         foreach ($courts as $v) {
             if(!$this->hasSubCourts($v->id)){
                 echo "<li><span class='folder end'></span><a target='court-list' href='index.php?r=court/show&court=$v->id'>$v->courtname</a>";
@@ -116,6 +132,11 @@ class Court extends \yii\db\ActiveRecord
                 $this->subTreeCourts($v->id);
             }
             echo "</li>";
+
+        }
+
+        if($id != 0 && !empty($courts)){
+                echo "</ul>";
         }
     }
 
@@ -148,6 +169,31 @@ class Court extends \yii\db\ActiveRecord
             $this->treeCourtsId($id);
             $this->activeTreeIds[] = $id;
             sort($this->activeTreeIds);
+    }
+
+    static public function getCourtList(){
+
+        $list = Court::find()->select("id, courtname")->orderby("id")->asArray()->all();
+        array_unshift($list, ["id"=>0, "courtname"=>"无"]);
+        return ArrayHelper::map($list, 'id', 'courtname');
+
+    }
+
+
+    static public function courtName($id){
+
+        return Court::findOne($id)->courtname;
+
+    }
+
+    static public function courtNumber($id){
+
+        return Court::findOne($id)->courtnumber;
+    }
+
+    static public function flowNumber($id){
+
+        return Court::findOne($id)->prefix_flownumber;
     }
 
 }

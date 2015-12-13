@@ -12,13 +12,17 @@ return [
         'input' => [
             'class' => 'frontend\module\input\Input',
         ],
+        'register' => [
+            'class' => 'frontend\module\register\Register',
+        ],
     ],
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'frontend\models\User',
+            'idParam'=>'_member',
             'enableAutoLogin' => true,
         ],
         'log' => [

@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "{{%court_level}}".
@@ -52,4 +53,13 @@ class CourtLevel extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Court::className(), ['level' => 'id']);
     }
+
+    static public function getLevelList(){
+
+        $list = CourtLevel::find()->select("id, name")->orderby("id")->asArray()->all();
+        return ArrayHelper::map($list, 'id', 'name');
+
+    }
+        
+
 }

@@ -39,7 +39,7 @@ AppAsset::register($this);
         <span class="welcom">
             （1234）楼小坚，欢迎登录系统，当前时间：<?=date("Y-m-d G:i")?>
         </span>
-        | <span><a href="#">退出</a></span>
+        | <span><a href="index.php?r=site/logout">退出</a></span>
     </div>
 
     <div id="notice">

@@ -2,7 +2,7 @@
 namespace frontend\controllers;
 
 /*use Yii;
-use common\models\LoginForm;
+
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
@@ -14,9 +14,12 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;*/
 
 use Yii;
+use frontend\models\LoginForm;
+
 use yii\web\Controller;
 use common\models\Common;
 use yii\data\Pagination;
+use common\models\Court;
 
 /**
  * Site controller
@@ -24,12 +27,8 @@ use yii\data\Pagination;
 class SiteController extends Controller
 {
 
-    public $toolBar = [];
-    public $years = [];
-    public $andwhere = [];
-    public $_model;
-    public $_action;
-    public $_year = "all";
+    public $layout = "home";
+
     /**
      * @inheritdoc
      */
@@ -67,11 +66,10 @@ class SiteController extends Controller
     public function actions()
     {
 
-        $this->years = Common::years( date("Y"), "1995" ); //get Years
-        $this->toolBar = $this->toolBar(); //get toolbar
+       
 
 
-       /* return [
+       return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
@@ -79,7 +77,7 @@ class SiteController extends Controller
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
-        ];*/
+        ];
     }
 
     /**
@@ -89,19 +87,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index', ["years"=>$this->years, "tool_bar"=>$this->toolBar, "y"=>"2012"]);
+        //return $this->render('index');
+        return $this->render('login');
     }
 
-    protected function toolBar(){
 
-        return [
-            "register"=>"注册法院",
-            "edit"=>"编辑法院",
-            "save-as"=>"另存为",
-            "print"=>"打印",
-        ];
-
-    }
 
     /**
      * Logs in a user.
@@ -116,7 +106,12 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            $session = Yii::$app->session;
+            $role = Yii::$app->user->identity->role;
+            $session->set('COURTNAME', Court::courtName($role));
+            $session->set('COURTNUMBER', Court::courtNumber($role));
+            $session->set('FLOWNUMBER', Court::flowNumber($role));
+            return $this->redirect("index.php?r=court/index");
         } else {
             return $this->render('login', [
                 'model' => $model,
@@ -133,7 +128,7 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->goHome();
+        return $this->redirect("index.php?r=site/login");
     }
 
     /**

@@ -1,35 +1,52 @@
 <?php
-
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \common\models\LoginForm */
-
+use yii\widgets\ActiveForm;
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
-
-$this->title = 'Login';
-$this->params['breadcrumbs'][] = $this->title;
+use app\assets\LoginAsset;
+LoginAsset::register($this);
 ?>
-<div class="site-login">
-    <h1><?= Html::encode($this->title) ?></h1>
+<?php $this->beginPage() ?>
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
+<head>
+    <meta charset="<?= Yii::$app->charset ?>">
 
-    <p>Please fill out the following fields to login:</p>
+    <?= Html::csrfMetaTags() ?>
+    <title>登录</title>
+    <?php $this->head() ?>
+</head>
+<body>
+<?php $this->beginBody() ?>
+<div class="bigbox">
+    <div class="fixedvox">
+    <div style="height:80px;"></div>
+ <?php $form = ActiveForm::begin(); ?>      
+        <div class="logininput">
+            <div class="password">
+                <ul>
+                    <li class="titlename">后台管理系统</li>   
 
-    <div class="row">
-        <div class="col-lg-5">
-            <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
+                    <li>
+                        <?= $form->field($model, 'username', ['template'=>'{label}'])->label("帐号:")?>
+                        <?= $form->field($model, 'username', ['template'=>'{input}{error}']) ?>
+                    </li>
+                    <li>
+                        <?= $form->field($model, 'password', ['template'=>'{label}'])->label("密码:")?>
+                        <?= $form->field($model, 'password', ['template'=>'{input}{error}'])->passwordInput()?>
+                    </li>
+            
 
-                <?= $form->field($model, 'username') ?>
 
-                <?= $form->field($model, 'password')->passwordInput() ?>
-
-                <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
-                <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
-                </div>
-
-            <?php ActiveForm::end(); ?>
+                    <li>
+                        <input type="submit"  value="登录" />
+                        <input type="reset"  value="重置" />
+                    </li>
+                </ul>
+            </div>
         </div>
+<?php ActiveForm::end(); ?> 
     </div>
 </div>
+</body>
+<?php $this->endBody() ?>
+</html>
+<?php $this->endPage() ?>
