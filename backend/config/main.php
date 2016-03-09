@@ -11,11 +11,11 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
+    'modules' => [],
     'components' => [
         'user' => [
-            'identityClass' => 'backend\models\Admin',
-            'idParam'=>'_admin',
-            'enableAutoLogin' => false,
+            'identityClass' => 'common\models\User',
+            'enableAutoLogin' => true,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -29,6 +29,14 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        /*
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+            ],
+        ],
+        */
     ],
     'params' => $params,
 ];

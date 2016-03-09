@@ -4,7 +4,7 @@ namespace backend\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
-use backend\models\LoginForm;
+use common\models\LoginForm;
 use yii\filters\VerbFilter;
 
 /**
@@ -26,18 +26,18 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'test'],
+                        'actions' => ['logout', 'index'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
                 ],
             ],
-            /*'verbs' => [
+            'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
                 ],
-            ],*/
+            ],
         ];
     }
 
@@ -55,7 +55,7 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->redirect("index.php?r=court/index");
+        return $this->render('index');
     }
 
     public function actionLogin()
@@ -68,7 +68,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
             return $this->goBack();
         } else {
-            return $this->renderPartial('login', [
+            return $this->render('login', [
                 'model' => $model,
             ]);
         }
@@ -79,10 +79,5 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
-    }
-
-    public function actionTest(){
-
-        return $this->render("test");
     }
 }

@@ -8,21 +8,12 @@ $params = array_merge(
 
 return [
     'id' => 'app-frontend',
-    'modules' => [
-        'input' => [
-            'class' => 'frontend\module\input\Input',
-        ],
-        'register' => [
-            'class' => 'frontend\module\register\Register',
-        ],
-    ],
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'user' => [
-            'identityClass' => 'frontend\models\User',
-            'idParam'=>'_member',
+            'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
         ],
         'log' => [
@@ -37,6 +28,14 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+        /*
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+            ],
+        ],
+        */
     ],
     'params' => $params,
 ];
