@@ -17,11 +17,8 @@ $this->title = $name;
         <?= nl2br(Html::encode($message)) ?>
     </div>
 
-    <p>
-        The above error occurred while the Web server was processing your request.
-    </p>
-    <p>
-        Please contact us if you think this is a server error. Thank you.
+    <p style="font-family: '微软雅黑'; padding-left: 10px;">
+        web请求在处理该页面时产生错误，如果您认为这是一个服务器错误，请联系我们。
     </p>
 
 </div>

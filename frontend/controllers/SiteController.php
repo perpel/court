@@ -12,6 +12,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use common\components\MakeDir;
 
 /**
  * Site controller
@@ -61,7 +62,7 @@ class SiteController extends Controller
             'captcha' => [
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
+            ]
         ];
     }
 
@@ -72,6 +73,9 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $path = \Yii::getAlias("@uploads") . DIRECTORY_SEPARATOR . "test1" . DIRECTORY_SEPARATOR . "test2";
+       MakeDir::create($path);
+        throw new BadRequestHttpException(123);
         return $this->render('index');
     }
 

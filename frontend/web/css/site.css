@@ -7,7 +7,7 @@ body {
     min-height: 100%;
     height: auto;
     margin: 0 auto -60px;
-    padding: 0 0 60px;
+    padding: 0 60px;
 }
 
 .wrap > .container {
@@ -16,7 +16,6 @@ body {
 
 .footer {
     height: 60px;
-    background-color: #f5f5f5;
     border-top: 1px solid #ddd;
     padding-top: 20px;
 }
@@ -102,4 +101,17 @@ a.desc:after {
 
 .nav > li > form > button:hover {
     text-decoration: none;
+}
+
+.site-login{
+    margin: auto;
+    text-align: center;
+    font-family: "微软雅黑";
+    width: 100%;
+}
+
+.site-login .col {
+    padding: 35px 20px 0px;
+    background-color: lightblue;
+    border: 2px solid orange;
 }
