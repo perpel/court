@@ -103,14 +103,14 @@ a.desc:after {
     text-decoration: none;
 }
 
-.site-login{
-    margin: auto;
+.site-login,.site-signup{
+    margin-bottom: 60px;
     text-align: center;
     font-family: "微软雅黑";
     width: 100%;
 }
 
-.site-login .col {
+.site-login .col, .site-signup .col {
     padding: 35px 20px 0px;
     background-color: lightblue;
     border: 2px solid orange;
