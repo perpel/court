@@ -13,6 +13,9 @@ use common\models\Court;
 $this->title = '法院注册';
 $this->params['breadcrumbs'][] = $this->title;
 
+echo Yii::getAlias('@cassets');
+die;
+echo $this->registerJsFile("@cassets/js/courtfilter.js");
 echo $this->registerJs($script);
 ?>
 <div class="site-login">

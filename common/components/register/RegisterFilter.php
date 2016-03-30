@@ -9,7 +9,7 @@ class RegisterFilter extends ActionFilter {
 
     //在action之前运行，可用来过滤输入
     public function beforeAction($action) {
-        echo '在调用action前显示<br/>';
+        //echo '在调用action前显示<br/>';
         return true;//如果返回值为false,则action不会运行
     }
 

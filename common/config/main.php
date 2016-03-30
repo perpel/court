@@ -7,4 +7,7 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
     ],
+    'aliases' => [
+    		'@cassets' => dirname(dirname(Yii::getAlias('@web'))) . '/common/assets'
+    	],
 ];

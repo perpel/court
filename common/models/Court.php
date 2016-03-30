@@ -3,8 +3,7 @@
 namespace common\models;
 
 use Yii;
-use common\components\Tree;
-use common\widgets\ListTree;
+use common\components\ListTree;
 use yii\helpers\ArrayHelper;
 
 /**
@@ -74,18 +73,13 @@ class Court extends \yii\db\ActiveRecord
                                 ->asArray()
                                 ->all();
 
-        $tree = new Tree($elements, 'id', 'up_level', $node, 'courtnumber');
-
-        $list = ListTree::widget([
-                    'defaultOption' => "DSGFSD", 
-                    'listTree' => $tree->tree, 
-                    "key" => "id",
-                    'nodeValue' => 'courtname',
-                    'nodeLevel' => 'level'
-                ]);
-
-
-        return ArrayHelper::map($list, "key", "option");
+        $tree = new ListTree($elements, 'id', 'up_level', $node, 'courtnumber');
+        $tree->defaultOption = "ADSAFSDFSD";
+        $tree->lKey = "id";
+        $tree->lNodeValue = "courtname";
+        $tree->lNodeLevel = "level";
+        
+        return ArrayHelper::map($tree->listTree(), "key", "option");
     }
 
     
