@@ -4,18 +4,17 @@ namespace common\components\register;
 
 use common\components\register\Code;
 
-final class Liscense implements Code{
+
+final class License implements Code{
 
 	public $beginDate;
 	public $endDate;
-
 	public $errorMsg;
-
 	public $operation = "ENCODE";
 	public $code;
 
 	public function __construct($code_str = "") {
-		if (empty($code_str)) {
+		if (!empty($code_str)) {
 			$this->code = $code_str;
 			$this->validate();
 			return;
@@ -23,6 +22,7 @@ final class Liscense implements Code{
 		$this->generateCode();
 	}
 
+    // regiter court
 	private function generateCode() {
 		// 生成注册码
         $this->code = $this->authcode($this->authcodeStr('insert'), 'ENCODE', 0);
@@ -31,21 +31,16 @@ final class Liscense implements Code{
     }
 
     private function validate($code) {
-    	
     	try {
-
     		// 是否为空
     		$this->isEmpty();
-    		// 验证是否有效注册码
+    		// 验证是否注册码存在及注册码有效性
     		$this->isEffective();
-    		// 是否存在
     		$this->isExist();
-
     	} catch(Exception $e) {
     		$this->errorMsg = $e->getMessage();
     		return false;
     	}
-
     	return true;
     }
 
@@ -61,30 +56,31 @@ final class Liscense implements Code{
     }
 
     private function isExist() {
-    	
+        if(empty($this->authcode($this->code, 'DECODE', 0)))
+        	throw new Exception("无效注册码", 1);
     }
+
+    
     // **************************//
 
     final private function authcodeStr($oper) {
     	return $oper . ":" . self::EXPIRE . ":date('Y-m-d G:i:s')";
     }
 
-    final public function authcodeArr($code) {
+    //*****************************************************//
+    final public static function authcodeArr($code) {
     	// 通过注册码返回注册信息数组
     	return explode(":", $this->authcode($code, 'DECODE', 0));
     }
 
-    public function isExpired() {
-    	$code = trim($code);
-        if(trim($code) == ""){
-            return false;
-        }
-
-        if(Yii::$app->cache->get($code) == 1){
-
-            return false;
-
-        }
+    final public static function isExpired($code, $start, $end) {
+    	$e = Liscense::$authcodeArr($code);
+    	$eStartDate = date('Y-m-d', strtotime(end($e)));
+    	$eExpire 	= $e[1];
+    	$eEndDate 	= date("Y-m-d", strtotime($eStartDate . "+" . $eExpire . " day"));
+    	if (!($start == $eStartDate && $end == $eEndDate)) {
+    		throw new common\components\Exception("201", "您登陆的法院已过期");
+    	}
     }
 
 	final private function authcode($string, $operation = 'DECODE', $expiry = 0) {   

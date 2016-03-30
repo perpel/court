@@ -67,7 +67,7 @@ AppAsset::register($this);
     }
 
     $menuItems[] = ['label' => ' | '];
-    $menuItems[] = ['label' => '法院注册', 'url' => ['/register/register/court']];
+    $menuItems[] = ['label' => '法院注册', 'url' => ['/court/register']];
     $menuItems[] = ['label' => '后台管理', 'url' => ['#']];
     $menuItems[] = ['label' => '关于我们', 'url' => ['#']];
     
