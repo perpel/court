@@ -18,7 +18,18 @@ $this->params['breadcrumbs'][] = $this->title;
     <div class="row">
     <div class="col-lg-2"></div>
         <div class="col-lg-8 col">
-            <?php $form = ActiveForm::begin(['id' => 'form-signup']); ?>
+            <?php $form = ActiveForm::begin([
+                'id' => 'form-signup',
+                'layout' => 'horizontal',
+                'fieldConfig' => [
+                    'template' => "{label}\n{beginWrapper}\n{input}\n{hint}\n{error}\n{endWrapper}",
+                    'horizontalCssClasses' => [
+                        'label' => 'col-sm-2',
+                        'wrapper' => 'col-sm-10',
+                        'error' => 'text-left'
+                    ]
+                ]
+            ]); ?>
 
                 <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
 
@@ -27,7 +38,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
                 <div class="form-group">
-                    <?= Html::submitButton('Signup', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
+                    <?= Html::submitButton('注册', ['class' => 'btn btn-primary', 'name' => 'submit-button']) ?>
+                    <?= Html::resetButton('清空', ['class' => 'btn btn-primary']) ?>
                 </div>
 
             <?php ActiveForm::end(); ?>

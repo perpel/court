@@ -1495,3 +1495,134 @@ Additional Information:
     ]
     'argc' => 2
 ]
+2016-03-27 11:47:09 [-][-][-][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1049] Unknown database 'case' in E:\www\court\vendor\yiisoft\yii2\db\Connection.php:600
+Stack trace:
+#0 E:\www\court\vendor\yiisoft\yii2\db\Connection.php(600): PDO->__construct('mysql:host=loca...', 'root', '', NULL)
+#1 E:\www\court\vendor\yiisoft\yii2\db\Connection.php(542): yii\db\Connection->createPdoInstance()
+#2 E:\www\court\vendor\yiisoft\yii2\db\Connection.php(858): yii\db\Connection->open()
+#3 E:\www\court\vendor\yiisoft\yii2\db\Connection.php(845): yii\db\Connection->getMasterPdo()
+#4 E:\www\court\vendor\yiisoft\yii2\db\Command.php(219): yii\db\Connection->getSlavePdo()
+#5 E:\www\court\vendor\yiisoft\yii2\db\Command.php(834): yii\db\Command->prepare(true)
+#6 E:\www\court\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 E:\www\court\vendor\yiisoft\yii2\db\mysql\Schema.php(198): yii\db\Command->queryAll()
+#8 E:\www\court\vendor\yiisoft\yii2\db\mysql\Schema.php(97): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 E:\www\court\vendor\yiisoft\yii2\db\Schema.php(146): yii\db\mysql\Schema->loadTableSchema('case_migration')
+#10 E:\www\court\vendor\yiisoft\yii2\console\controllers\MigrateController.php(132): yii\db\Schema->getTableSchema('{{%migration}}', true)
+#11 E:\www\court\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(680): yii\console\controllers\MigrateController->getMigrationHistory(NULL)
+#12 E:\www\court\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(123): yii\console\controllers\BaseMigrateController->getNewMigrations()
+#13 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#14 E:\www\court\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#15 E:\www\court\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#16 E:\www\court\vendor\yiisoft\yii2\console\Controller.php(108): yii\base\Controller->runAction('', Array)
+#17 E:\www\court\vendor\yiisoft\yii2\base\Module.php(454): yii\console\Controller->runAction('', Array)
+#18 E:\www\court\vendor\yiisoft\yii2\console\Application.php(167): yii\base\Module->runAction('migrate', Array)
+#19 E:\www\court\vendor\yiisoft\yii2\console\Application.php(143): yii\console\Application->runAction('migrate', Array)
+#20 E:\www\court\vendor\yiisoft\yii2\base\Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#21 E:\www\court\yii(27): yii\base\Application->run()
+#22 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1049] Unknown database 'case' in E:\www\court\vendor\yiisoft\yii2\db\Connection.php:547
+Stack trace:
+#0 E:\www\court\vendor\yiisoft\yii2\db\Connection.php(858): yii\db\Connection->open()
+#1 E:\www\court\vendor\yiisoft\yii2\db\Connection.php(845): yii\db\Connection->getMasterPdo()
+#2 E:\www\court\vendor\yiisoft\yii2\db\Command.php(219): yii\db\Connection->getSlavePdo()
+#3 E:\www\court\vendor\yiisoft\yii2\db\Command.php(834): yii\db\Command->prepare(true)
+#4 E:\www\court\vendor\yiisoft\yii2\db\Command.php(362): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 E:\www\court\vendor\yiisoft\yii2\db\mysql\Schema.php(198): yii\db\Command->queryAll()
+#6 E:\www\court\vendor\yiisoft\yii2\db\mysql\Schema.php(97): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 E:\www\court\vendor\yiisoft\yii2\db\Schema.php(146): yii\db\mysql\Schema->loadTableSchema('case_migration')
+#8 E:\www\court\vendor\yiisoft\yii2\console\controllers\MigrateController.php(132): yii\db\Schema->getTableSchema('{{%migration}}', true)
+#9 E:\www\court\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(680): yii\console\controllers\MigrateController->getMigrationHistory(NULL)
+#10 E:\www\court\vendor\yiisoft\yii2\console\controllers\BaseMigrateController.php(123): yii\console\controllers\BaseMigrateController->getNewMigrations()
+#11 [internal function]: yii\console\controllers\BaseMigrateController->actionUp(0)
+#12 E:\www\court\vendor\yiisoft\yii2\base\InlineAction.php(55): call_user_func_array(Array, Array)
+#13 E:\www\court\vendor\yiisoft\yii2\base\Controller.php(154): yii\base\InlineAction->runWithParams(Array)
+#14 E:\www\court\vendor\yiisoft\yii2\console\Controller.php(108): yii\base\Controller->runAction('', Array)
+#15 E:\www\court\vendor\yiisoft\yii2\base\Module.php(454): yii\console\Controller->runAction('', Array)
+#16 E:\www\court\vendor\yiisoft\yii2\console\Application.php(167): yii\base\Module->runAction('migrate', Array)
+#17 E:\www\court\vendor\yiisoft\yii2\console\Application.php(143): yii\console\Application->runAction('migrate', Array)
+#18 E:\www\court\vendor\yiisoft\yii2\base\Application.php(375): yii\console\Application->handleRequest(Object(yii\console\Request))
+#19 E:\www\court\yii(27): yii\base\Application->run()
+#20 {main}
+Additional Information:
+
+2016-03-27 11:47:08 [-][-][-][info][application] $_SERVER = [
+    '#envTSLOGSHELLEXT3724' => '501765536'
+    '#envTSLOGsss3724' => '331196064'
+    'ACLOCAL_PATH' => 'D:\\Program Files\\Git\\mingw32\\share\\aclocal;D:\\Program Files\\Git\\usr\\share\\aclocal'
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'AMDAPPSDKROOT' => 'C:\\Program Files\\AMD APP\\'
+    'ANDROID_PATH' => 'D:\\Android\\adt-bundle-windows-x86-20140702\\sdk\\platform-tools;D:\\Android\\adt-bundle-windows-x86-20140702\\sdk\\tools'
+    'APPDATA' => 'C:\\Users\\Administrator\\AppData\\Roaming'
+    'CLASSPATH' => '.;D:\\Java\\jdk1.8.0_31\\lib;D:\\Java\\jdk1.8.0_31\\lib\\tools.jar'
+    'COMMONPROGRAMFILES' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'WIN-3QQT12SQGNP'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'DISPLAY' => 'needs-to-be-defined'
+    'EXEPATH' => 'D:\\Program Files\\Git'
+    'FPS_BROWSER_APP_PROFILE_STRING' => 'Internet Explorer'
+    'FPS_BROWSER_USER_PROFILE_STRING' => 'Default'
+    'FP_NO_HOST_CHECK' => 'NO'
+    'GO' => 'D:\\Go\\bin'
+    'GOROOT' => 'D:\\Go\\'
+    'HOME' => 'C:\\Users\\Administrator'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\Administrator'
+    'HOSTNAME' => 'WIN-3QQT12SQGNP'
+    'INFOPATH' => 'D:\\Program Files\\Git\\usr\\local\\info;D:\\Program Files\\Git\\usr\\share\\info;D:\\Program Files\\Git\\usr\\info;D:\\Program Files\\Git\\share\\info'
+    'JAVA_HOME' => 'D:\\Java\\jdk1.8.0_31'
+    'LANG' => 'zh_CN.UTF-8@cjknarrow'
+    'LOCALAPPDATA' => 'C:\\Users\\Administrator\\AppData\\Local'
+    'LOGONSERVER' => '\\\\WIN-3QQT12SQGNP'
+    'MANPATH' => 'D:\\Program Files\\Git\\mingw32\\share\\man;D:\\Program Files\\Git\\usr\\local\\man;D:\\Program Files\\Git\\usr\\share\\man;D:\\Program Files\\Git\\usr\\man;D:\\Program Files\\Git\\share\\man'
+    'MSYSTEM' => 'MINGW32'
+    'MYSQL_XAMPP_HOME' => 'D:\\xampp\\MySQL\\bin'
+    'NUMBER_OF_PROCESSORS' => '4'
+    'OS' => 'Windows_NT'
+    'PATH' => 'C:\\Users\\Administrator\\bin;D:\\Program Files\\Git\\mingw32\\bin;D:\\Program Files\\Git\\usr\\local\\bin;D:\\Program Files\\Git\\usr\\bin;D:\\Program Files\\Git\\usr\\bin;D:\\Program Files\\Git\\mingw32\\bin;D:\\Program Files\\Git\\usr\\bin;C:\\Users\\Administrator\\bin;D:\\Ruby22\\bin;C:\\Program Files\\AMD APP\\bin\\x86;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0;C:\\Program Files\\ATI Technologies\\ATI.ACE\\Core-Static;D:\\nodejs;D:\\Program Files\\Git\\usr\\bin;D:\\Go\\bin;C:\\Program Files\\Calibre2;D:\\SVN\\bin;C:\\Program Files\\Windows Kits\\8.1\\Windows Performance Toolkit;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn;C:\\Program Files\\Microsoft SDKs\\TypeScript\\1.0;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn;C:\\Users\\Administrator\\bin\\Sencha\\Cmd\\;C:\\Users\\Administrator\\AppData\\Roaming\\npm;D:\\Android\\adt-bundle-windows-x86-20140702\\sdk\\platform-tools;D:\\Android\\adt-bundle-windows-x86-20140702\\sdk\\tools;D:\\Java\\jdk1.8.0_31\\bin;D:\\Java\\jdk1.8.0_31\\jre\\bin;D:\\Go\\bin;D:\\xampp\\php;D:\\Program Files\\Git\\usr\\bin\\vendor_perl;D:\\Program Files\\Git\\usr\\bin\\core_perl'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'PHP_XAMPP' => 'D:\\xampp\\php'
+    'PKG_CONFIG_PATH' => 'D:\\Program Files\\Git\\mingw32\\lib\\pkgconfig;D:\\Program Files\\Git\\mingw32\\share\\pkgconfig'
+    'PLINK_PROTOCOL' => 'ssh'
+    'PRINTER' => 'Microsoft XPS Document Writer'
+    'PROCESSOR_ARCHITECTURE' => 'x86'
+    'PROCESSOR_IDENTIFIER' => 'x86 Family 6 Model 42 Stepping 7, GenuineIntel'
+    'PROCESSOR_LEVEL' => '6'
+    'PROCESSOR_REVISION' => '2a07'
+    'PROGRAMFILES' => 'C:\\Program Files'
+    'PS1' => '\\[\\033]0;$TITLEPREFIX:${PWD//[^[:ascii:]]/?}\\007\\]\\n\\[\\033[32m\\]\\u@\\h \\[\\033[35m\\]$MSYSTEM \\[\\033[33m\\]\\w\\[\\033[36m\\]`__git_ps1`\\[\\033[0m\\]\\n$ '
+    'PSModulePath' => 'C:\\WINDOWS\\system32\\WindowsPowerShell\\v1.0\\Modules\\'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'PWD' => 'E:/www/court'
+    'ProgramData' => 'C:\\ProgramData'
+    'SESSIONNAME' => 'Console'
+    'SHELL' => 'D:\\Program Files\\Git\\usr\\bin\\bash'
+    'SHLVL' => '1'
+    'SSH_ASKPASS' => 'D:/Program Files/Git/mingw32/libexec/git-core/git-gui--askpass'
+    'SYSTEMDRIVE' => 'C:'
+    'SYSTEMROOT' => 'C:\\WINDOWS'
+    'TEMP' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'TERM' => 'xterm'
+    'TMP' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'TMPDIR' => 'C:\\Users\\ADMINI~1\\AppData\\Local\\Temp'
+    'USERDOMAIN' => 'WIN-3QQT12SQGNP'
+    'USERDOMAIN_ROAMINGPROFILE' => 'WIN-3QQT12SQGNP'
+    'USERNAME' => 'Administrator'
+    'USERPROFILE' => 'C:\\Users\\Administrator'
+    'VS110COMNTOOLS' => 'C:\\Program Files\\Microsoft Visual Studio 11.0\\Common7\\Tools\\'
+    'VS120COMNTOOLS' => 'D:\\IDE\\Microsoft Visual Studio 12.0\\Common7\\Tools\\'
+    'WINDIR' => 'C:\\WINDOWS'
+    '_' => './yii'
+    'PHP_SELF' => './yii'
+    'SCRIPT_NAME' => './yii'
+    'SCRIPT_FILENAME' => './yii'
+    'PATH_TRANSLATED' => './yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1459072028.6159
+    'REQUEST_TIME' => 1459072028
+    'argv' => [
+        0 => './yii'
+        1 => 'migrate'
+    ]
+    'argc' => 2
+]

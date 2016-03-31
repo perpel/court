@@ -47,6 +47,9 @@ class SiteController extends Controller
                     'logout' => ['post'],
                 ],
             ],
+            'register' => [
+                'class' => 'common\components\register\RegisterFilter',
+            ],
         ];
     }
 
