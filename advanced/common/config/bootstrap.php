@@ -1,6 +1,6 @@
 <?php
 
-require(dirname(dirname(dirname(__DIR__)) . "/config.php");
+require(dirname(dirname(dirname(__DIR__)) ). "/config.php");
 
 Yii::setAlias('@common', ROOT_MAIN . '/common');
 Yii::setAlias('@frontend', ROOT_MAIN . '/frontend');
