@@ -1,0 +1,24 @@
+{
+  "name": "advanced",
+  "homepage": "https://github.com/sx-dev/court",
+  "authors": [
+    "perpel <572821520@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies" : {
+    "jquery": "1.9.1",
+    "html5shiv": "*",
+    "respond": "*"
+  }
+}
