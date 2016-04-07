@@ -330,7 +330,7 @@ abstract class BaseMailer extends Component implements MailerInterface, ViewCont
         }
         file_put_contents($file, $message->toString());
 
-        return true;
+        return ture;
     }
 
     /**

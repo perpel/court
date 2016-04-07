@@ -1,7 +1,7 @@
 <?php
 namespace frontend\models;
 
-use common\models\User;
+use frontend\models\User;
 use yii\base\InvalidParamException;
 use yii\base\Model;
 use Yii;
@@ -49,6 +49,12 @@ class ResetPasswordForm extends Model
         ];
     }
 
+    public function attributeLabels() {
+        return [
+            "password" => '新密码'
+        ];
+    }
+
     /**
      * Resets password.
      *
@@ -59,7 +65,10 @@ class ResetPasswordForm extends Model
         $user = $this->_user;
         $user->setPassword($this->password);
         $user->removePasswordResetToken();
-
-        return $user->save(false);
+        if ($user->save(false)) {
+            Yii::$app->session->setFlash('success', '新密码(' . $this->password . ')已经被保存');
+            return true;
+        }
+        return false;
     }
 }

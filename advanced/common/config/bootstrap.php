@@ -1,6 +1,7 @@
 <?php
 
-require(dirname(dirname(dirname(__DIR__)) ). "/config.php");
+
+require(dirname(dirname(dirname(__DIR__))) . "/config.php");
 
 Yii::setAlias('@common', ROOT_MAIN . '/common');
 Yii::setAlias('@frontend', ROOT_MAIN . '/frontend');
@@ -10,3 +11,5 @@ Yii::setAlias('@console', ROOT_MAIN . '/console');
 Yii::setAlias('@uploads', ROOT . '/uploads');
 Yii::setAlias('@print', ROOT . '/uploads/print');
 Yii::setAlias('@reports', ROOT . '/uploads/reports');
+// assets
+Yii::setAlias('@cweb', '/advanced/common/web');

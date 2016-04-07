@@ -9,6 +9,7 @@ namespace frontend\assets;
 
 use yii\web\AssetBundle;
 
+
 /**
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
@@ -23,7 +24,10 @@ class AppAsset extends AssetBundle
     public $js = [
     ];
     public $depends = [
+        'common\components\assets\RespondAsset',
+        'common\components\assets\Html5ShivAsset',
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
+        'common\components\assets\LayerAsset'
     ];
 }
